@@ -73,6 +73,12 @@ class DilanController extends Controller
      */
     public function destroy(Dilan $dilan)
     {
-        //
+        $paramiterDilan = $dilan->delete();
+        if($paramiterDilan){
+            // return redirect()-back();
+            return redirect()->back()->with('msg',"Delete ok");
+        }else{
+            return redirect()->back()->with('msg',"Delete erroe");
+        }
     }
 }
